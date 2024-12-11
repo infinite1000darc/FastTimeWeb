@@ -46,6 +46,13 @@ button:hover{
     border-radius: 2px;
 }
 
+.información-envío{
+    background-color: rgb(204, 252, 234);
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 2px;
+}
+
 .contenedor{
     max-width: 450px;
     padding: 20px;
