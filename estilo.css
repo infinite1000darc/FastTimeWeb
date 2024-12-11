@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 5;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+}
+
+body {
+    background-color: rgb(223, 204, 244);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1{
+    color:darkblue;
+    margin-bottom: 20px;
+}
+
+button{
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: rgb(203, 165, 244);
+    border-color: rgb(147, 147, 244);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+p{
+    margin-top: 12px;
+    margin-top: 10px;
+}
+
+button:hover{
+    background-color: rgb(117, 78, 156);
+    color: #ffffff;
+}
+
+.lista-estados{
+    background-color: rgb(204, 252, 234);
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 2px;
+}
+
+.contenedor{
+    max-width: 450px;
+    padding: 20px;
+    background-color: aliceblue;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+    text-align: center;
+}
