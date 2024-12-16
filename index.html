@@ -7,23 +7,56 @@
     <title>Consultar Envío</title>
 </head>
 <body>
-    <h1>FAST-TIME</h1>
-    <div class="contenedor">
-        <h1>Consultar estado del envío</h1>
-        <input type="number" id="inputNoGuía" onchange="validarNumeroCambio()">
-        <div id="información-envío" class="información-envío">
-            
-        </div>
-        <div id="lista-paquetes" class="lista-paquetes">
-            
-        </div>
-        <div id="lista-estados" class="lista-estados">
-            
-        </div>
-        <button onclick="obtenerInformaciónEnvio()">Consultar estado</button>
-    </div>
+    <header>
+        <h1>FAST-TIME</h1>
+    </header>
+    <main class="contenedor">
+        <h2>Consultar estado del envío</h2>
+        <section class="consulta">
+            <label for="inputNoGuía">Número de guía:</label>
+            <!-- Agregar el evento oninput -->
+            <input 
+                type="text" 
+                id="inputNoGuía" 
+                placeholder="Ingresa tu número de guía" 
+                oninput="recargarSiCampoVacio()" 
+                onchange="validarNumeroCambio()"
+            >
+            <button onclick="obtenerInformacionEnvio()">Consultar estado</button>
+        </section>
+        
+        <!-- Tabla para información del envío -->
+        <table id="tabla-envio">
+            <thead>
+                <tr>
+                    <th>Origen</th>
+                    <th>Destino</th>
+                    <th>Status</th>
+                    <th>Descripción</th>
+                    <th>Alto</th>
+                    <th>Ancho</th>
+                    <th>Profundidad</th>
+                    <th>Peso</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se cargarán los datos dinámicamente -->
+            </tbody>
+        </table>
 
-    <script src="funcion.js">
-    </script>
+        <!-- Nueva tabla para el historial del envío -->
+        <h3>Historial de Envío</h3>
+        <table id="tabla-historial">
+            <thead>
+                <tr>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se cargará el historial dinámicamente -->
+            </tbody>
+        </table>
+    </main>
+    <script src="funcion.js"></script>
 </body>
 </html>

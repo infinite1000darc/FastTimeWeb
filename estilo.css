@@ -1,77 +1,196 @@
+/* Reset básico */
 * {
     box-sizing: border-box;
     margin: 0;
-    padding: 5;
+    padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    justify-content: center;
 }
 
+/* Estilo del body */
 body {
     background-color: rgb(223, 204, 244);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    padding: 20px;
 }
 
-h1{
-    color:darkblue;
+/* Encabezado */
+header h1 {
+    color: darkblue;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Contenedor principal */
+.contenedor {
+    max-width: 750px;
+    width: 100%;
+    padding: 20px;
+    background-color: aliceblue;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Títulos */
+h2 {
+    color: darkblue;
     margin-bottom: 20px;
+    font-size: 1.5rem;
 }
 
-button{
-    margin-top: 15px;
+/* Inputs y botones */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
     padding: 10px 20px;
     background-color: rgb(203, 165, 244);
-    border-color: rgb(147, 147, 244);
-    border-radius: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
     cursor: pointer;
+    font-size: 1rem;
     transition: background-color 0.3s;
 }
 
-p{
-    margin-top: 12px;
-    margin-top: 10px;
-}
-
-button:hover{
+button:hover {
     background-color: rgb(117, 78, 156);
-    color: #ffffff;
 }
 
-.lista-estados{
-    background-color: rgb(204, 252, 234);
+/* Secciones de información */
+section {
+    margin-top: 15px;
     padding: 10px;
-    margin: 8px 0;
-    border-radius: 2px;
-}
-
-.lista-paquetes{
     background-color: rgb(204, 252, 234);
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 2px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
 }
 
-.información-envío{
-    background-color: rgb(204, 252, 234);
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 2px;
+/* Tabla de resultados */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-.lista-elementos{
-    background-color: rgb(204, 252, 234);
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 2px;
+thead {
+    background-color: rgb(203, 165, 244);
+    color: white;
 }
 
-.contenedor{
-    max-width: 450px;
-    padding: 20px;
-    background-color: aliceblue;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-    border-radius: 4px;
+thead th {
+    padding: 10px;
     text-align: center;
+    font-size: 1rem;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+tbody td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+/* Botones dentro de la tabla */
+table button {
+    padding: 5px 10px;
+    background-color: rgb(78, 156, 117);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+table button:hover {
+    background-color: rgb(56, 122, 87);
+}
+
+/* Responsividad */
+@media (max-width: 480px) {
+    .contenedor {
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    thead {
+        font-size: 0.9rem;
+    }
+}
+
+/* Encabezado de la tabla de historial */
+#tabla-historial {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Cabecera de la tabla */
+#tabla-historial thead {
+    background-color: rgb(203, 165, 244);
+    color: white;
+}
+
+#tabla-historial th {
+    padding: 10px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Filas alternadas en la tabla */
+#tabla-historial tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+#tabla-historial tbody tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+/* Estilo de las celdas */
+#tabla-historial td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+/* Responsividad para historial */
+@media (max-width: 480px) {
+    #tabla-historial {
+        font-size: 0.9rem;
+    }
+
+    #tabla-historial thead {
+        font-size: 0.9rem;
+    }
 }
