@@ -3,27 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Envío</title>
     <link rel="stylesheet" href="estilo.css">
-    <title>Consultar Envío</title>
 </head>
 <body>
-    <h1>FAST-TIME</h1>
-    <div class="contenedor">
-        <h1>Consultar estado del envío</h1>
-        <input type="number" id="inputNoGuía" onchange="validarNumeroCambio()">
-        <div id="información-envío" class="información-envío">
-            
+    <header>
+        <h1>FAST-TIME</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Consultar estado del envío</h2>
+            <div>
+                <label for="inputNoGuía">Número de guía:</label>
+                <input type="text" id="inputNoGuía" placeholder="Ingresa el número de guía">
+                <button onclick="obtenerInformacionEnvio()">Consultar estado</button>
+            </div>
+        </section>
+        <div class="contenedor-tablas">
+            <!-- Historial del envío -->
+            <section id="seccion-historial">
+                <h3>Historial del Envío</h3>
+                <table id="tabla-historial">
+                    <thead>
+                        <tr>
+                            <th>FECHA</th>
+                            <th>ESTADO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Las filas se generarán dinámicamente mediante JavaScript -->
+                    </tbody>
+                </table>
+            </section>
+            <!-- Detalles del envío -->
+            <section id="seccion-detalles">
+                <h3>Detalles del Envío</h3>
+                <table id="tabla-envio">
+                    <thead>
+                      <tr>
+                        <th>Origen</th>
+                        <th>Destino</th>
+                        <th>Conductor</th>
+                        <th>Descripción</th>
+                        <th>Alto</th>
+                        <th>Ancho</th>
+                        <th>Profundidad</th>
+                        <th>Peso</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Las filas se insertarán aquí -->
+                    </tbody>
+                  </table>
+                  
+            </section>
         </div>
-        <div id="lista-paquetes" class="lista-paquetes">
-            
-        </div>
-        <div id="lista-estados" class="lista-estados">
-            
-        </div>
-        <button onclick="obtenerInformaciónEnvio()">Consultar estado</button>
-    </div>
-
-    <script src="funcion.js">
-    </script>
+    </main>
+    <script src="funcion.js"></script>
 </body>
 </html>
