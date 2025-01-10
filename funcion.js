@@ -2,31 +2,60 @@ const URL_OBTENER_ENVIO = 'http://localhost:8084/WSFastTime/ws/envio/obtenerEnvi
 const URL_OBTENER_PAQUETES = 'http://localhost:8084/WSFastTime/ws/paquete/obtenerPaqueteNoGuia/';
 const URL_OBTENER_STATUS = 'http://localhost:8084/WSFastTime/ws/envio/obtenerEstatus/';
 
+
 let cargandoDatos = false;
 let ultimoNumeroGuia = "";
+
+document.getElementById("inputNoGuía").addEventListener("input", function() {
+    validarNumeroCambio();
+    recargarSiCampoVacio();
+});
+
+function validarCampos() {
+    const inputNumero = document.getElementById("inputNoGuía");
+    const numeroGuia = inputNumero.value.trim();
+    if (numeroGuia === "") {
+        // Lanza una notificación de error
+        Swal.fire({
+            title: 'Error!',
+            text: 'El número de guía no puede estar vacío.',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+        });
+        return false;
+    }
+    if (numeroGuia.length !== 24) {
+        Swal.fire({
+            title: 'Error!',
+            text: 'El número de guía debe tener 24 dígitos.',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+        });
+        return false;
+    }
+    return true;
+}
 
 function validarNumeroCambio() {
     const inputNumero = document.getElementById("inputNoGuía");
     inputNumero.value = inputNumero.value.trim();
 }
 
-function validarCampos() {
-    const inputNumero = document.getElementById("inputNoGuía");
-    return inputNumero.value !== "";
-}
-
 function recargarSiCampoVacio() {
     const inputNumero = document.getElementById("inputNoGuía");
     if (inputNumero.value.trim() === "") {
         limpiarDatos();
+        console.log("El campo del número de guía está vacío. Recargando datos...");
     }
 }
+
+
 
 function obtenerInformacionEnvio() {
     if (validarCampos()) {
         cargarDatosEnvioYHistorial();
     } else {
-        alert("Error: Número de guía no válido.");
+        
     }
 }
 
@@ -155,6 +184,8 @@ function mostrarDatosEnvio(tablaEnvio, envio, paquetes) {
             filasExistentes.add(nuevaFilaHTML);
         }
     });
+    
+    tablaEnvio.parentElement.classList.remove("hidden");
 }
 
 function mostrarHistorialEnvio(tablaHistorial, historial) {
@@ -177,16 +208,26 @@ function mostrarHistorialEnvio(tablaHistorial, historial) {
             filasExistentes.add(nuevaFilaHTML);
         }
     });
+    
+    tablaHistorial.parentElement.classList.remove("hidden");
 }
 
 function limpiarDatos() {
-    const tablaEnvio = document.getElementById("tabla-envio")?.querySelector("tbody");
-    const tablaHistorial = document.getElementById("tabla-historial")?.querySelector("tbody");
+    const tablaEnvio = document.getElementById("tabla-envio");
+    const tablaHistorial = document.getElementById("tabla-historial");
 
-    if (tablaEnvio) tablaEnvio.innerHTML = "";
-    if (tablaHistorial) tablaHistorial.innerHTML = "";
+    if (tablaEnvio && tablaEnvio.querySelector("tbody")) {
+        tablaEnvio.querySelector("tbody").innerHTML = "";
+        tablaEnvio.classList.add("hidden");  // Oculta la tabla de envío nuevamente
+    }
+    if (tablaHistorial && tablaHistorial.querySelector("tbody")) {
+        tablaHistorial.querySelector("tbody").innerHTML = "";
+        tablaHistorial.classList.add("hidden");  // Oculta la tabla de historial nuevamente
+    }
+   
     ultimoNumeroGuia = "";
     cargandoDatos = false;
     console.log("Datos limpiados y estado restablecido.");
 }
+
 

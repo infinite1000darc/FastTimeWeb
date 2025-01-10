@@ -138,3 +138,7 @@ h3 {
     border-radius: 4px;
     text-align: left;
 }
+
+.hidden {
+    display: none;
+}
